@@ -13,6 +13,7 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    var looper: AVPlayerLooper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +22,46 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
+        
+        guard let url = Bundle.main.path(forResource: "sfgif2", ofType: "mp4") else {
+            debugPrint("sfGif not found")
+            return
+        }
+        
+        
+        let gif = AVPlayer(url: URL(fileURLWithPath: url))
+        gif.play()
+        loopVideo(gif)
+        
+        // add the box and material
+        let box = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+        box.firstMaterial?.diffuse.contents = gif
+        
+        // create a node for the box
+        let node = SCNNode(geometry: box)
+        node.position = SCNVector3(0,0,-0.5)
+        
+        // rotate action
+        let rotate = SCNAction.rotateBy(x: 360, y: 120, z: 120, duration: 1000)
+        let rotateForever = SCNAction.repeatForever(rotate)
+        node.runAction(rotateForever)
         
         // Set the scene to the view
         sceneView.scene = scene
+        scene.rootNode.addChildNode(node)
+
+    }
+    
+    // restart video with notifications
+    func loopVideo(_ videoPlayer: AVPlayer) {
+       NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: videoPlayer.currentItem, queue: nil) { (_) in
+           videoPlayer.seek(to: CMTime.zero)
+           videoPlayer.play()
+       }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +69,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.frameSemantics.insert(.personSegmentationWithDepth)
 
         // Run the view's session
         sceneView.session.run(configuration)

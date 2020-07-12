@@ -13,6 +13,8 @@
 		528F72132470E65C00083FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528F72112470E65C00083FC4 /* Main.storyboard */; };
 		528F72152470E66100083FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528F72142470E66100083FC4 /* Assets.xcassets */; };
 		528F72182470E66100083FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528F72162470E66100083FC4 /* LaunchScreen.storyboard */; };
+		528F722024718DD100083FC4 /* sfgif2.mp4 in Sources */ = {isa = PBXBuildFile; fileRef = 528F721F24718DD100083FC4 /* sfgif2.mp4 */; };
+		528F72212471903400083FC4 /* sfgif2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 528F721F24718DD100083FC4 /* sfgif2.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		528F72142470E66100083FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		528F72172470E66100083FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		528F72192470E66100083FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		528F721F24718DD100083FC4 /* sfgif2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfgif2.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +43,7 @@
 		528F71FF2470E65B00083FC4 = {
 			isa = PBXGroup;
 			children = (
+				528F721F24718DD100083FC4 /* sfgif2.mp4 */,
 				528F720A2470E65C00083FC4 /* sharing-fiction-cube */,
 				528F72092470E65C00083FC4 /* Products */,
 			);
@@ -125,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528F72212471903400083FC4 /* sfgif2.mp4 in Resources */,
 				528F720E2470E65C00083FC4 /* art.scnassets in Resources */,
 				528F72182470E66100083FC4 /* LaunchScreen.storyboard in Resources */,
 				528F72152470E66100083FC4 /* Assets.xcassets in Resources */,
@@ -139,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528F722024718DD100083FC4 /* sfgif2.mp4 in Sources */,
 				528F72102470E65C00083FC4 /* ViewController.swift in Sources */,
 				528F720C2470E65C00083FC4 /* AppDelegate.swift in Sources */,
 			);
